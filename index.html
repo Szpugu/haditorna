@@ -24,7 +24,7 @@
 
 <div class="hero">
   <svg class="topo" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <g fill="none" stroke="#3E5C48" stroke-opacity=".16" stroke-width="1.5">
+    <g fill="none" stroke="#F1EFE7" stroke-opacity=".10" stroke-width="1.5">
       <path d="M-20,60 C150,20 300,110 460,70 S760,10 920,70"/>
       <path d="M-20,110 C160,70 310,160 470,120 S770,60 920,120"/>
       <path d="M-20,165 C170,125 320,215 480,175 S780,115 920,175"/>
@@ -32,15 +32,15 @@
       <path d="M-20,275 C190,235 340,325 500,285 S800,225 920,285"/>
     </g>
     <path d="M40,290 C200,240 260,150 420,170 S700,120 860,60"
-          fill="none" stroke="#C7402D" stroke-width="3" stroke-dasharray="8 7" stroke-opacity=".85"/>
-    <g fill="#C7402D">
+          fill="none" stroke="#E1492F" stroke-width="3" stroke-dasharray="8 7" stroke-opacity=".9"/>
+    <g fill="#E1492F">
       <circle cx="40" cy="290" r="7"/>
       <circle cx="420" cy="170" r="7"/>
       <circle cx="860" cy="60" r="7"/>
     </g>
   </svg>
   <div class="wrap">
-    <h1>Irány a rajtzóna.</h1>
+    <h1><span class="chev">»</span>Irány a rajtzóna.</h1>
     <p class="lead">Minden egy helyen a csapat két őszi megmérettetéséhez: versenyszámok, szabályok és a felkészüléshez szükséges elméleti anyagok.</p>
   </div>
 </div>
@@ -50,15 +50,15 @@
   <div class="missions">
     <article class="mission">
       <h2>Országos Ifjúsági Honvédelmi Járőrverseny</h2>
-      <p class="date">2026. szeptember 24. · Pápa, MH 47. Bázisrepülőtér</p>
+      <p class="date">2026. szeptember 24. · Pápa, MH 47. Bázisrepülőtér <span class="count" data-date="2026-09-24"></span></p>
       <p>Kb. 8 km-es terepszakasz, 100 perc szintidő, útközben 10 feladat a meghirdetett 12-ből. Csapatverseny, SPORTIDENT időméréssel. A Honvéd Kadét Kupa állomása.</p>
-      <p class="go"><a href="jarorverseny.html">Feladatok és szabályok →</a></p>
+      <p class="go"><a href="jarorverseny.html">» Feladatok és szabályok</a></p>
     </article>
     <article class="mission">
       <h2>Országos Haditorna Verseny – megyei forduló</h2>
-      <p class="date">2026. október 6. · Szombathely (Győr-Moson-Sopron, Vas, Zala)</p>
+      <p class="date">2026. október 6. · Szombathely (Győr-Moson-Sopron, Vas, Zala) <span class="count" data-date="2026-10-06"></span></p>
       <p>10 versenyszám 30 perces forgásban, két kültéri és nyolc beltéri állomás. 4 fős csapat, a helyezési számok összege dönt. A győztes jut az országos döntőbe.</p>
-      <p class="go"><a href="haditorna.html">Versenyszámok →</a></p>
+      <p class="go"><a href="haditorna.html">» Versenyszámok</a></p>
     </article>
   </div>
 
@@ -77,5 +77,14 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.count').forEach(function(el){
+  var d = Math.ceil((new Date(el.dataset.date) - new Date()) / 86400000);
+  if (d > 1)      el.textContent = 'MÉG ' + d + ' NAP';
+  else if (d === 1) el.textContent = 'HOLNAP!';
+  else if (d === 0) el.textContent = 'MA VAN!';
+  else el.remove();
+});
+</script>
 </body>
 </html>

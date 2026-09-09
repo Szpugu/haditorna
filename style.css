@@ -4,7 +4,7 @@
   --ink:#1E3329;        /* fenyőzöld tinta */
   --mid:#3E5C48;        /* középzöld */
   --khaki:#83846E;      /* másodlagos szöveg, keretek */
-  --route:#C7402D;      /* jelzéspiros (útvonal) */
+  --route:#E1492F;      /* jelzéspiros (útvonal) */
   --card:#FAF9F3;
 }
 *{box-sizing:border-box}
@@ -49,23 +49,34 @@ nav.main a{
 nav.main a:hover{color:#fff}
 nav.main a[aria-current="page"]{color:#fff;border-bottom-color:var(--route)}
 
-/* --- hero --- */
-.hero{position:relative;overflow:hidden;background:var(--paper)}
-.hero .wrap{position:relative;padding:3.2rem 1.1rem 2.6rem}
+/* --- hero: éjszakai menet --- */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--paper)}
+.hero .wrap{position:relative;padding:3.4rem 1.1rem 2.8rem}
 .hero svg.topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.hero p.lead{font-size:1.15rem;max-width:34em;margin:.4rem 0 0}
+.hero h1{text-transform:uppercase;letter-spacing:.02em}
+.hero p.lead{font-size:1.15rem;max-width:34em;margin:.4rem 0 0;color:#D8DECF}
+.chev{display:inline-block;color:var(--route);letter-spacing:-.05em;margin-right:.35rem}
+
+/* --- visszaszámláló --- */
+.count{
+  display:inline-block;margin-top:.2rem;padding:.15rem .55rem;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;
+  background:var(--route);color:#fff;letter-spacing:.04em;
+}
 
 /* --- versenykártyák a kezdőlapon --- */
 .missions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;margin:1.6rem 0 2.4rem}
 .mission{
-  background:var(--card);border:1.5px solid var(--khaki);
+  background:var(--card);border:1.5px solid var(--khaki);border-top:5px solid var(--mid);
   padding:1.2rem 1.2rem 1.1rem;display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
 }
+.mission:hover{transform:translateY(-3px);border-top-color:var(--route);box-shadow:0 6px 0 -2px var(--route)}
 .mission .date{
   font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:600;color:var(--route);
 }
 .mission p{margin:0}
-.mission .go{margin-top:auto;padding-top:.7rem;font-weight:600}
+.mission .go{margin-top:auto;padding-top:.7rem;font-weight:700;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;letter-spacing:.03em}
 
 /* --- felhívás (határidő) --- */
 .callout{
@@ -90,6 +101,8 @@ details.cp{
   margin:.55rem 0;
 }
 details.cp[open]{border-left-color:var(--route)}
+summary.cp-head:hover{background:rgba(225,73,47,.07)}
+summary.cp-head:hover .cp-num{border-color:var(--route);color:var(--route)}
 summary.cp-head{
   display:flex;align-items:center;gap:.8rem;cursor:pointer;
   padding:.7rem .9rem;font-size:1.15rem;list-style:none;margin:0;
