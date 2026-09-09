@@ -1,6 +1,6 @@
 {
-  "name": "Bercsényi kadétok",
-  "short_name": "Bercsényi",
+  "name": "Kadét felkészítő",
+  "short_name": "Kadét",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
