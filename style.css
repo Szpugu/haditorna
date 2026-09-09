@@ -1,0 +1,137 @@
+/* ==== Kadét felkészítő – közös stílus ==== */
+:root{
+  --paper:#F1EFE7;      /* térképpapír */
+  --ink:#1E3329;        /* fenyőzöld tinta */
+  --mid:#3E5C48;        /* középzöld */
+  --khaki:#83846E;      /* másodlagos szöveg, keretek */
+  --route:#C7402D;      /* jelzéspiros (útvonal) */
+  --card:#FAF9F3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Barlow',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+}
+h1,h2,h3,summary.cp-head{
+  font-family:'Barlow Condensed',sans-serif;
+  line-height:1.1;
+  margin:0 0 .4em;
+}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600}
+h3{font-size:1.25rem;font-weight:600}
+a{color:var(--mid)}
+a:hover{color:var(--route)}
+a:focus-visible,summary:focus-visible,button:focus-visible{
+  outline:3px solid var(--route);outline-offset:2px;border-radius:2px;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 1.1rem}
+
+/* --- fejléc / navigáció --- */
+header.site{
+  background:var(--ink);color:var(--paper);
+  border-bottom:4px solid var(--route);
+}
+.site .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.4rem;padding:.8rem 1.1rem}
+.brand{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  font-size:1.35rem;color:var(--paper);text-decoration:none;letter-spacing:.03em;
+}
+nav.main{display:flex;flex-wrap:wrap;gap:.2rem .9rem;margin-left:auto}
+nav.main a{
+  color:#CFD8CB;text-decoration:none;font-weight:600;font-size:.95rem;
+  padding:.25rem 0;border-bottom:3px solid transparent;
+}
+nav.main a:hover{color:#fff}
+nav.main a[aria-current="page"]{color:#fff;border-bottom-color:var(--route)}
+
+/* --- hero --- */
+.hero{position:relative;overflow:hidden;background:var(--paper)}
+.hero .wrap{position:relative;padding:3.2rem 1.1rem 2.6rem}
+.hero svg.topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero p.lead{font-size:1.15rem;max-width:34em;margin:.4rem 0 0}
+
+/* --- versenykártyák a kezdőlapon --- */
+.missions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;margin:1.6rem 0 2.4rem}
+.mission{
+  background:var(--card);border:1.5px solid var(--khaki);
+  padding:1.2rem 1.2rem 1.1rem;display:flex;flex-direction:column;gap:.5rem;
+}
+.mission .date{
+  font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:600;color:var(--route);
+}
+.mission p{margin:0}
+.mission .go{margin-top:auto;padding-top:.7rem;font-weight:600}
+
+/* --- felhívás (határidő) --- */
+.callout{
+  border-left:5px solid var(--route);background:var(--card);
+  padding:.8rem 1rem;margin:1.4rem 0;
+}
+.callout strong{color:var(--route)}
+
+/* --- adatlap (kulcsinfók) --- */
+dl.facts{
+  display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1.2rem;
+  margin:1.2rem 0;padding:1rem 1.1rem;background:var(--card);border:1.5px solid var(--khaki);
+}
+dl.facts dt{font-weight:600;color:var(--mid)}
+dl.facts dd{margin:0}
+@media(max-width:520px){dl.facts{grid-template-columns:1fr}dl.facts dt{margin-top:.4rem}}
+
+/* --- ellenőrzőpont-sorok (versenyszámok) --- */
+section.course{margin:2.2rem 0}
+details.cp{
+  background:var(--card);border:1.5px solid var(--khaki);border-left:5px solid var(--mid);
+  margin:.55rem 0;
+}
+details.cp[open]{border-left-color:var(--route)}
+summary.cp-head{
+  display:flex;align-items:center;gap:.8rem;cursor:pointer;
+  padding:.7rem .9rem;font-size:1.15rem;list-style:none;margin:0;
+}
+summary.cp-head::-webkit-details-marker{display:none}
+.cp-num{
+  flex:0 0 2.1rem;height:2.1rem;border-radius:50%;
+  border:2.5px solid var(--mid);color:var(--mid);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:700;background:var(--paper);
+}
+details.cp[open] .cp-num{border-color:var(--route);color:var(--route)}
+.cp-meta{margin-left:auto;font-family:'Barlow',sans-serif;font-size:.82rem;color:var(--khaki);font-weight:600;text-align:right}
+.cp-body{padding:.2rem 1rem 1rem;border-top:1px dashed var(--khaki)}
+.cp-body h4{margin:.9rem 0 .25rem;font-size:.95rem;color:var(--route);font-weight:700}
+.cp-body p,.cp-body ul{margin:.25rem 0 .6rem}
+.cp-body ul{padding-left:1.2rem}
+.cp-body .theory{font-weight:600}
+
+/* --- általános szabálylista --- */
+ul.rules{padding-left:1.2rem}
+ul.rules li{margin:.35rem 0}
+
+/* --- elmélet oldal: témablokkok --- */
+.shelf{margin:1.8rem 0}
+.shelf ul{list-style:none;padding:0;margin:.5rem 0 0}
+.shelf li{
+  border-bottom:1px dashed var(--khaki);padding:.55rem .1rem;
+  display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:baseline;
+}
+.shelf li a{font-weight:600;text-decoration:none;border-bottom:2px solid var(--mid)}
+.shelf li a:hover{border-bottom-color:var(--route)}
+.shelf li span{color:var(--khaki);font-size:.9rem}
+
+/* --- lábléc --- */
+footer.site{
+  margin-top:3rem;background:var(--ink);color:#CFD8CB;
+  font-size:.9rem;border-top:4px solid var(--route);
+}
+footer.site .wrap{padding:1.1rem}
+footer.site a{color:#fff}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
